@@ -4,14 +4,16 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import App from './components/App'
 import Movie from './components/Movie'
+import NotFound from './components/NotFound'
 
 const Root = () => {
   return (
     <BrowserRouter>
-      <div>
+      <Switch>
         <Route exact path='/' component={App} />
         <Route exact path='/movie/:movieId' component={Movie} />
-      </div>
+        <Route component={NotFound} />
+      </Switch>
     </BrowserRouter>
   )
 }

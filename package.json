@@ -1,0 +1,21 @@
+{
+  "name": "movie-database-ui",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://velizargenov.github.io/movie-database-ui/",
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "concurrently": "3.0.0",
+    "react-scripts": "0.6.1"
+  },
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.10"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  }
+}

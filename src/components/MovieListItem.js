@@ -11,7 +11,7 @@ class MovieListItem extends React.Component {
     console.log('You changed the URL')
     const movieId = this.props.index
     console.log('this: ', movieId)
-    // this.context.router.history.push('/movie/movieId')
+    this.context.router.history.push(`/movie/${movieId}`)
   }
 
   render() {
@@ -26,7 +26,7 @@ class MovieListItem extends React.Component {
 }
 
 MovieListItem.contextTypes = {
-  router: React.PropTypes.func.isRequired
+  router: React.PropTypes.object
 }
 
 export default MovieListItem

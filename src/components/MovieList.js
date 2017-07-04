@@ -1,12 +1,16 @@
 import React from 'react'
+import MovieListItem from './MovieListItem'
 
 class MovieList extends React.Component {
   render() {
-    const { details } = this.props
     return (
-      <div className="movie">
+      <div className="movie-list">
         This is MovieList!<br />
-        <img src={details.image} width="200px" />
+        {
+          Object
+            .keys(this.props.movies)
+            .map(key => <MovieListItem key={key} index={key} details={this.props.movies[key]} />)
+        }
       </div>
     )
   }

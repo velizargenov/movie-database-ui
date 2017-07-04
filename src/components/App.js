@@ -6,8 +6,6 @@ class App extends React.Component {
   constructor() {
     super()
 
-    this.loadSamples = this.loadSamples.bind(this)
-
     // get initial state
     this.state = {
       movies: sampleMovies
@@ -21,15 +19,10 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this)
     return (
       <div className="main">
         This is App!
-        {
-          Object
-            .keys(this.state.movies)
-            .map(key => <MovieList key={key} index={key} details={this.state.movies[key]} />)
-        }
+        <MovieList movies={this.state.movies}/>
       </div>
     )
   }

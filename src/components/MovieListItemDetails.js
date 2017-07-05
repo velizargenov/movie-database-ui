@@ -19,7 +19,11 @@ class MovieListItemDetails extends React.Component {
         loading: false,
         movie: sampleMovies[movieId]
       })
-    }, 1000)
+    }, 500)
+  }
+
+  goBack() {
+    this.props.history.push('/')
   }
 
   renderContent() {
@@ -34,6 +38,7 @@ class MovieListItemDetails extends React.Component {
         <div>
           <h1>{this.state.movie.title}</h1>
           <img src={this.state.movie.image} alt="" width="200px" />
+          <button onClick={() => this.goBack()}>Go back</button>
         </div>
       )
     }

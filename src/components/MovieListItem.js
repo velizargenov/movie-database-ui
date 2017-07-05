@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieListItemDetails from './MovieListItemDetails'
+import PropTypes from 'prop-types'
 
 class MovieListItem extends React.Component {
   constructor() {
@@ -14,8 +14,7 @@ class MovieListItem extends React.Component {
 
   goToMovie() {
     console.log('You changed the URL')
-    const movieId = this.props.index
-    this.context.router.history.push(`/movie/${movieId}`)
+    this.context.router.history.push(`/movie/${this.props.index}`)
   }
 
   render() {
@@ -30,7 +29,7 @@ class MovieListItem extends React.Component {
 }
 
 MovieListItem.contextTypes = {
-  router: React.PropTypes.object
+  router: PropTypes.object
 }
 
 export default MovieListItem

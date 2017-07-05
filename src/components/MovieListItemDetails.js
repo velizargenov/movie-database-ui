@@ -40,7 +40,6 @@ class MovieListItemDetails extends React.Component {
   }
 
   render() {
-
     return (
       <div className="movie-list-item-details">
         This is MovieListItemDetails!<br /><br /><br />

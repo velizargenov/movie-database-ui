@@ -14,14 +14,8 @@ class MovieListItem extends React.Component {
 
   goToMovie() {
     console.log('You changed the URL')
-    // this.setState({
-    //   modalClicked: true
-    // })
     const movieId = this.props.index
-    this.context.router.history.push({
-      pathname: `/movie/${movieId}`,
-      state: { movie: this.props.details }
-    })
+    this.context.router.history.push(`/movie/${movieId}`)
   }
 
   render() {
@@ -30,9 +24,6 @@ class MovieListItem extends React.Component {
       <div className="movie-list-item" onClick={() => this.goToMovie()} >
         This is MovieListItem!
         <img src={details.image} alt="" width="200px" />
-        <div>
-          {this.state.modalClicked ? <MovieListItemDetails details={details}/> : console.log(2)}
-        </div>
       </div>
     )
   }

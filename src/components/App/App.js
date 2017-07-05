@@ -1,6 +1,6 @@
 import React from 'react'
-import MovieList from './MovieList'
-import sampleMovies from '../sample-movies'
+import MovieList from '../MovieList/MovieList'
+import sampleMovies from '../../sample-movies'
 
 class App extends React.Component {
   constructor() {

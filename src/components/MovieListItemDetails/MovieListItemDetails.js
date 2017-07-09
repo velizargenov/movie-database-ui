@@ -1,5 +1,6 @@
 import React from 'react'
-import sampleMovies from '../../sample-movies'
+
+import { fetchMovieDetails } from '../../services/api'
 
 class MovieListItemDetails extends React.Component {
   constructor() {
@@ -14,12 +15,14 @@ class MovieListItemDetails extends React.Component {
   componentDidMount() {
     const movieId = this.props.location.pathname.split('/')[2]
 
-    setTimeout(() => {
-      this.setState({
-        loading: false,
-        movie: sampleMovies[movieId]
+    this.setState({
+      movie: fetchMovieDetails(movieId).then(data => {
+        this.setState({
+          loading: false,
+          movie: data,
+        })
       })
-    }, 500)
+    })
   }
 
   goBack() {
@@ -34,10 +37,11 @@ class MovieListItemDetails extends React.Component {
         </div>
       )
     } else {
+      const image = `https://image.tmdb.org/t/p/w300_and_h450_bestv2/${this.state.movie.poster_path}`
       return (
         <div>
           <h1>{this.state.movie.title}</h1>
-          <img src={this.state.movie.image} alt="" width="200px" />
+          <img src={image} alt="" width="200px" />
           <button onClick={() => this.goBack()}>Go back</button>
         </div>
       )

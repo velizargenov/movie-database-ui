@@ -27,30 +27,39 @@ class App extends React.Component {
     })
   }
 
-  getInputValue(contnetFromChild) {
+  getInputValue(searchValue) {
     this.setState({
-      searchValue: contnetFromChild
+      searchValue: searchValue
     })
   }
 
   filterMovies() {
-    return {
-      movie1: {
-        title: 'A beautiful Mind',
-        image: 'https://dd6zx4ibq538k.cloudfront.net/static/images/2395/941b9491b9e6413cf2676809d9762451_673_1000.jpeg',
-        releaseDate: 2001,
-        rating: 8.2,
-        duration: 135,
-        genre: ['Biography', 'Drama'],
-        director: 'Ron Howard',
-        stars: ['Russell Crowe', 'Ed Harris', 'Jennifer Connelly', 'Christopher Plummer'],
-        bio: 'After John Nash, a brilliant but asocial mathematician, accepts secret work in cryptography, his life takes a turn for the nightmarish.'
-      }
-    }
+    return [{
+      "vote_count": 8380,
+      "id": 76341,
+      "video": false,
+      "vote_average": 7.2,
+      "title": "Mad Max: Fury Road",
+      "popularity": 38.628602,
+      "poster_path": "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
+      "original_language": "en",
+      "original_title": "Mad Max: Fury Road",
+      "genre_ids": [
+        28,
+        12,
+        878,
+        53
+      ],
+      "backdrop_path": "/phszHPFVhPHhMZgo0fWTKBDQsJA.jpg",
+      "adult": false,
+      "overview": "An apocalyptic story set in the furthest reaches of our planet, in a stark desert landscape where humanity is broken, and most everyone is crazed fighting for the necessities of life. Within this world exist two rebels on the run who just might be able to restore order. There's Max, a man of action and a man of few words, who seeks peace of mind following the loss of his wife and child in the aftermath of the chaos. And Furiosa, a woman of action and a woman who believes her path to survival may be achieved if she can make it across the desert back to her childhood homeland.",
+      "release_date": "2015-05-13"
+    }]
   }
 
   render() {
     const searchResult = this.filterMovies()
+    console.log(this.state.movies)
     return (
       <div className="main">
         This is App!

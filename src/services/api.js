@@ -4,7 +4,7 @@ import keys from '../config/keys'
 const base = keys.base
 const token = keys.token
 
-function makeRequest (url, params, result) {
+function makeRequest (url, params) {
   return axios.get(url, { params: params })
   .then(response => response.data)
   .catch(error => console.log(error))

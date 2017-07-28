@@ -22,4 +22,10 @@ function fetchMovieDetails (movieId) {
   return makeRequest(url, params)
 }
 
-export { fetchPopularMovies, fetchMovieDetails }
+function fetchSearchedMovies (query) {
+  const url = `${base}/search/movie`
+  const params = {api_key: token, query: query, page: 1}
+  return makeRequest(url, params)
+}
+
+export { fetchPopularMovies, fetchMovieDetails, fetchSearchedMovies }

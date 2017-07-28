@@ -13,13 +13,15 @@ class MovieListItem extends React.Component {
   }
 
   goToMovie() {
-    console.log('You changed the URL')
     this.context.router.history.push(`/movie/${this.props.index}`)
   }
 
   render() {
     const { details } = this.props
-    const image = `https://image.tmdb.org/t/p/w300_and_h450_bestv2/${details.poster_path}`
+    const image = !details.poster_path
+      ? 'https://dd6zx4ibq538k.cloudfront.net/static/images/2395/b455a76cdf770ca4eff883dbd23cbb79_440_656.jpeg'
+      : `https://image.tmdb.org/t/p/w300_and_h450_bestv2/${details.poster_path}`
+
     const voteAvarage = Number((details.vote_average).toFixed(2))
     const releaseYear = details.release_date.split('-')[0]
 

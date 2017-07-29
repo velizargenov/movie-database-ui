@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './MovieListItem.css'
 
 class MovieListItem extends React.Component {
   constructor() {
@@ -26,8 +27,7 @@ class MovieListItem extends React.Component {
     const releaseYear = details.release_date.split('-')[0]
 
     return (
-      <div className="movie-list-item" onClick={() => this.goToMovie()} >
-        This is MovieListItem!
+      <li className="movie-list-item" onClick={() => this.goToMovie()} >
         <h1>{details.title}</h1>
         <h2>{releaseYear}</h2>
         <img src={image} alt="" width="200px" />
@@ -37,7 +37,7 @@ class MovieListItem extends React.Component {
           <span>Vote count: {details.vote_count}</span>
         </div>
         <hr />
-      </div>
+      </li>
     )
   }
 }

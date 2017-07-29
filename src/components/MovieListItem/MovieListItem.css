@@ -1,0 +1,9 @@
+li {
+  list-style: none;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 10px;
+  padding: 20px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 calc(13.33%);
+  flex: 1 1 calc(13.33%);
+}

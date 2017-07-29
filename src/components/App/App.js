@@ -2,8 +2,9 @@ import React from 'react'
 
 import Search from '../Search/Search'
 import MovieList from '../MovieList/MovieList'
+import './App.css'
 
-import { fetchPopularMovies, fetchSearchedMovies } from '../../services/api'
+import { fetchPopularMovies } from '../../services/api'
 
 class App extends React.Component {
   constructor(props) {
@@ -41,14 +42,19 @@ class App extends React.Component {
   }
 
   render() {
+    const type = this.state.searchValue ? 'search-results' : 'most-popular'
     return (
       <div className="main">
-        This is App!
-        <Search getInputValue={this.getInputValue} getSearchResult={this.getSearchResult} updateSearchState={this.updateSearchState} state={this.state} />
+        <header></header>
+        <Search
+          getInputValue={this.getInputValue}
+          getSearchResult={this.getSearchResult}
+          updateSearchState={this.updateSearchState} state={this.state}
+        />
         {
           this.state.searchValue === ''
-            ? <MovieList movies={this.state.movies} props={this.state.movies}/>
-            : <MovieList movies={this.state.searchResult} props={this.state.searchResult}/>
+            ? <MovieList props={this.state.movies} type={type} />
+            : <MovieList props={this.state.searchResult} type={type} />
         }
       </div>
     )

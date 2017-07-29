@@ -1,6 +1,7 @@
 import React from 'react'
 import { fetchSearchedMovies } from '../../services/api'
 import lodash from 'lodash'
+import './Search.css'
 
 class Search extends React.Component {
   constructor() {
@@ -29,8 +30,6 @@ class Search extends React.Component {
           onChange={lodash.debounce(() => {this.getResult(this.searchInput.value)}, 500)}
           ref={(input) => { this.searchInput = input }}
         />
-
-        <br /><br /><br /><br /><br />
       </div>
     )
   }

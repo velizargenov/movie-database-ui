@@ -2,6 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { fetchMovieDetails } from '../../services/api'
 
+import {
+  formatTitle,
+  formatAvarageVote,
+  formatReleaseYear,
+  formatVoteCount,
+  formatImage,
+  formatImdbLink
+} from '../../helpers'
+
 class MovieListItemDetails extends React.Component {
   constructor() {
     super()
@@ -34,11 +43,18 @@ class MovieListItemDetails extends React.Component {
         </div>
       )
     } else {
-      const image = `https://image.tmdb.org/t/p/w300_and_h450_bestv2/${this.state.movie.poster_path}`
+      const { title, poster_path, overview, vote_average, vote_count, imdb_id, release_date } = this.state.movie
       return (
         <div>
-          <h1>{this.state.movie.title}</h1>
-          <img src={image} alt="" width="200px" />
+          <h1>{formatTitle(title)}</h1>
+          <h2>{release_date}</h2>
+          <img src={formatImage(poster_path)} alt="" width="200px" />
+          <p>{overview}</p>
+          <div>
+            <span>Vote avarage: {formatAvarageVote(vote_average)}</span><br />
+            <span>Vote count: {formatVoteCount(vote_count)}</span>
+          </div>
+          <a href={formatImdbLink(imdb_id)} target="_blank">IMDB Link</a>
           <button onClick={() => this.goBack()}>Go back</button>
         </div>
       )

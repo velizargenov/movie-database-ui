@@ -1,6 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './MovieListItem.css'
+import {
+  formatTitle,
+  formatAvarageVote,
+  formatReleaseYear,
+  formatOverview,
+  formatVoteCount,
+  formatImage
+} from '../../helpers'
 
 class MovieListItem extends React.Component {
   constructor() {
@@ -19,22 +27,15 @@ class MovieListItem extends React.Component {
 
   render() {
     const { details } = this.props
-    const image = !details.poster_path
-      ? 'https://dd6zx4ibq538k.cloudfront.net/static/images/2395/b455a76cdf770ca4eff883dbd23cbb79_440_656.jpeg'
-      : `https://image.tmdb.org/t/p/w300_and_h450_bestv2/${details.poster_path}`
-
-    const voteAvarage = Number((details.vote_average).toFixed(2))
-    const releaseYear = details.release_date.split('-')[0]
 
     return (
       <li className="movie-list-item" onClick={() => this.goToMovie()} >
-        <h1>{details.title}</h1>
-        <h2>{releaseYear}</h2>
-        <img src={image} alt="" width="200px" />
-        <p>{details.overview}</p>
+        <h1>{formatTitle(details.title)}</h1>
+        <h2>{formatReleaseYear(details.release_date)}</h2>
+        <img src={formatImage(details.poster_path)} alt="" width="200px" />
+        <p>{formatOverview(details.overview)}</p>
         <div>
-          <span>Vote avarage: {voteAvarage}</span><br />
-          <span>Vote count: {details.vote_count}</span>
+          <span>Vote avarage: {formatAvarageVote(details.vote_average)}</span>
         </div>
         <hr />
       </li>

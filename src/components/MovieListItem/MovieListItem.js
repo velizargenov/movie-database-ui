@@ -46,4 +46,9 @@ MovieListItem.contextTypes = {
   router: PropTypes.object
 }
 
+MovieListItem.propTypes = {
+  index: PropTypes.number.isRequired,
+  details: PropTypes.object.isRequired
+}
+
 export default MovieListItem

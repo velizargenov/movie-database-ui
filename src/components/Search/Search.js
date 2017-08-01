@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { fetchSearchedMovies } from '../../services/api'
 import lodash from 'lodash'
 import './Search.css'
@@ -33,6 +34,11 @@ class Search extends React.Component {
       </div>
     )
   }
+}
+
+Search.propTypes = {
+  getInputValue: PropTypes.func.isRequired,
+  getSearchResult: PropTypes.func.isRequired
 }
 
 export default Search

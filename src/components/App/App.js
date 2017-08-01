@@ -1,19 +1,16 @@
 import React from 'react'
-
 import Search from '../Search/Search'
 import MovieList from '../MovieList/MovieList'
+import { fetchPopularMovies } from '../../services/api'
 import './App.css'
 
-import { fetchPopularMovies } from '../../services/api'
-
 class App extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.getInputValue = this.getInputValue.bind(this)
     this.getSearchResult = this.getSearchResult.bind(this)
 
-    // get initial state
     this.state = {
       movies: [],
       searchValue: '',
@@ -49,7 +46,6 @@ class App extends React.Component {
         <Search
           getInputValue={this.getInputValue}
           getSearchResult={this.getSearchResult}
-          updateSearchState={this.updateSearchState} state={this.state}
         />
         {
           this.state.searchValue === ''

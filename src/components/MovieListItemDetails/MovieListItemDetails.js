@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 import { fetchMovieDetails } from '../../services/api'
 
 class MovieListItemDetails extends React.Component {
@@ -14,13 +14,10 @@ class MovieListItemDetails extends React.Component {
 
   componentDidMount() {
     const movieId = this.props.location.pathname.split('/')[2]
-
-    this.setState({
-      movie: fetchMovieDetails(movieId).then(data => {
-        this.setState({
-          loading: false,
-          movie: data,
-        })
+    fetchMovieDetails(movieId).then(data => {
+      this.setState({
+        loading: false,
+        movie: data,
       })
     })
   }
@@ -51,11 +48,15 @@ class MovieListItemDetails extends React.Component {
   render() {
     return (
       <div className="movie-list-item-details">
-        This is MovieListItemDetails!<br /><br /><br />
         { this.renderContent() }
       </div>
     )
   }
+}
+
+MovieListItemDetails.propTypes = {
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 }
 
 export default MovieListItemDetails

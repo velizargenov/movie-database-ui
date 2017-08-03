@@ -1,10 +1,14 @@
-.movie-list {
-  padding: 0 15%;
-  border: 5px solid green;
+.movie-list .title {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #E9EAEB;
+  font-size: 28px;
 }
 
 .movie-list ul {
+  margin: 0;
+  padding: 0;
+
   display: flex;
   flex-wrap: wrap;
-  /*justify-content: center;*/
+  justify-content: center;
 }

@@ -1,9 +1,46 @@
 li {
+  border: 1px solid;
+  width: 220px;
+  height: 380px;
+  overflow: hidden;
   list-style: none;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 10px;
-  padding: 20px;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 calc(13.33%);
-  flex: 1 1 calc(13.33%);
+  color: #E9EAEB;
+  float: left;
+  position: relative;
+  font-family: 'Josefin Sans', sans-serif;
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+li img {
+  width: 200px;
+  height: 305px;
+  margin-bottom: 15px;
+}
+
+li div {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  line-height: 48px;
+  font-size: 20px;
+  text-align: center;
+  background-color: #F48F26;
+  display: inline-block;
+  position: absolute;
+  bottom: 97px;
+  right: 2px;
+}
+
+li .movie-list-item-title {
+  display: block;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+li .movie-list-item-release-year {
+  display: block;
+  font-size: 14px;
+  color: #8a9195;
 }

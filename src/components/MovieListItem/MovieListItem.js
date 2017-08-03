@@ -5,7 +5,6 @@ import {
   formatTitle,
   formatAvarageVote,
   formatReleaseYear,
-  formatOverview,
   formatVoteCount,
   formatImage
 } from '../../helpers'
@@ -30,14 +29,10 @@ class MovieListItem extends React.Component {
 
     return (
       <li className="movie-list-item" onClick={() => this.goToMovie()} >
-        <h1>{formatTitle(details.title)}</h1>
-        <h2>{formatReleaseYear(details.release_date)}</h2>
         <img src={formatImage(details.poster_path)} alt="" width="200px" />
-        <p>{formatOverview(details.overview)}</p>
-        <div>
-          <span>Vote avarage: {formatAvarageVote(details.vote_average)}</span>
-        </div>
-        <hr />
+        <div>{formatAvarageVote(details.vote_average)}</div>
+        <span className="movie-list-item-title">{formatTitle(details.title)}</span>
+        <span className="movie-list-item-release-year">{formatReleaseYear(details.release_date)}</span>
       </li>
     )
   }

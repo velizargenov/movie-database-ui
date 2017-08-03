@@ -42,7 +42,6 @@ class App extends React.Component {
     const type = this.state.searchValue ? 'search-results' : 'most-popular'
     return (
       <div className="main">
-        <header></header>
         <Search
           getInputValue={this.getInputValue}
           getSearchResult={this.getSearchResult}

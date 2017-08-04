@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './MovieListItemDetails.css'
 import { fetchMovieDetails } from '../../services/api'
 
 import {
@@ -45,15 +46,22 @@ class MovieListItemDetails extends React.Component {
     } else {
       const { title, poster_path, overview, vote_average, vote_count, imdb_id, release_date } = this.state.movie
       return (
-        <div>
+        <div className="movie-list-item-details-container">
           <h1>{formatTitle(title)}</h1>
-          <h2>{release_date}</h2>
-          <img src={formatImage(poster_path)} alt="" width="200px" />
-          <p>{overview}</p>
-          <div>
-            <span>Vote avarage: {formatAvarageVote(vote_average)}</span><br />
-            <span>Vote count: {formatVoteCount(vote_count)}</span>
+          <div className="movie-list-item-bio">
+            <img src={formatImage(poster_path)} alt="" width="200px" />
+            <div className="details">
+              <div className="details-top">
+                <div className="release-year">{release_date}</div>
+                <div className="rating">
+                  <span>{formatAvarageVote(vote_average)} /</span>
+                  <span>{formatVoteCount(vote_count)}</span>
+                </div>
+              </div>
+              <p>{overview}</p>
+            </div>
           </div>
+
           <a href={formatImdbLink(imdb_id)} target="_blank">IMDB Link</a>
           <button onClick={() => this.goBack()}>Go back</button>
         </div>

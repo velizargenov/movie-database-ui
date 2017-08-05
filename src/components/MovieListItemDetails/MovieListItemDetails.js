@@ -6,7 +6,6 @@ import { fetchMovieDetails } from '../../services/api'
 import {
   formatTitle,
   formatAvarageVote,
-  formatReleaseYear,
   formatVoteCount,
   formatImage,
   formatImdbLink
@@ -61,9 +60,12 @@ class MovieListItemDetails extends React.Component {
               <p>{overview}</p>
             </div>
           </div>
-
-          <a href={formatImdbLink(imdb_id)} target="_blank">IMDB Link</a>
-          <button onClick={() => this.goBack()}>Go back</button>
+          <div className="navigation">
+            <div className="go-back-button" onClick={() => this.goBack()}>Go back</div>
+            <a href={formatImdbLink(imdb_id)} target="_blank" className="imdb-link">
+              <img src="https://d1m54pdnjzjnhe.cloudfront.net/pngineer/220cc7d0-79f9-11e7-a34a-4964468dc4d5.png" alt="imdb logo" />
+            </a>
+          </div>
         </div>
       )
     }

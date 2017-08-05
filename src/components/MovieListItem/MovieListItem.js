@@ -5,7 +5,6 @@ import {
   formatTitle,
   formatAvarageVote,
   formatReleaseYear,
-  formatVoteCount,
   formatImage
 } from '../../helpers'
 
